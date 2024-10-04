@@ -1,6 +1,6 @@
 #! /usr/bin/python3
 
-# build json from python by hand
+# diccionarios python y su forma yaml
 
 target = '''
 {
