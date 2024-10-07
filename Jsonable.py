@@ -18,8 +18,37 @@ class Jsonable:
     def push(self, algo) -> None: 
         self.__data.append(algo)
 
+    # exceptions: try, throw, catch, exception ....
+
+    # pop() falible en IndexError de la <class list>.pop()
+    # def pop(self) -> object:
+    #         return self.__data.pop()
+
+    # pop() que tolera el fallo <class list>.pop() de estado vacio 
+    # reconociendolo por si mismo.
+    # def pop(self) -> object:
+    #     if 0 == len(self.__data):  # lazy way of life
+    #         return None
+    #     else:
+    #         return self.__data.pop()
+
+    # pop() que tolera el fallo <class list>.pop() de estado vacio 
+    # delegando su reconocimiento (a la <class list>) y menajandolo.
     def pop(self) -> object:
-        return self.__data.pop()
+        try:
+            return self.__data.pop()
+        except IndexError:
+            return None
+
+    import json
+
+    def dumpJson(self) -> str :
+        # return json.dumps(self.__data)
+        return json.dumps(self.__data, sort_keys=True, indent=3)
+
+    def loadJson(self, ajson) -> None :
+        self.__data = json.loads(ajson)
+
 if __name__ == "__main__":
 
     js0 = Jsonable()
@@ -46,6 +75,7 @@ if __name__ == "__main__":
     algo = js0.pop()
     print(js0, algo)
 
-
+    js0.loadJson('["foo", {"bar":["baz", null, 1.0, 2]}]')
+    print(js0)
 
 
