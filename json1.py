@@ -50,7 +50,7 @@ if __name__ == "__main__":
       "zip": "10001"
   }
 
-  # persona["address"] = address
+  persona["address"] = address
   # print(persona)
   print(type(persona))
   print()

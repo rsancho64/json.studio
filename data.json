@@ -1,0 +1,19 @@
+{
+   "address": {
+      "city": "New York",
+      "state": "NY",
+      "street": "123 Main Street",
+      "zip": "10001"
+   },
+   "age": 30,
+   "email": "john.doe@example.com",
+   "hobbies": [
+      [
+         "reading",
+         "playing soccer",
+         "traveling"
+      ]
+   ],
+   "is_employee": true,
+   "name": "John Doe"
+}
